@@ -19,7 +19,7 @@ nnoremap <leader>> :tabnext<CR>
 nnoremap <leader>< :tabprev<CR>
 nnoremap <SPACE><ESC> :tabnext<CR>
 
-nnoremap <leader><leader> :vsplit<CR>:E<SPACE>~<CR><c-w><c-w>
+nnoremap <leader><leader> :vsplit<CR>:E<SPACE>~<CR><c-w><c-w><c-w>40>
 nnoremap <SPACE>, <c-w>10<
 nnoremap <SPACE>. <c-w>10>
 nnoremap <SPACE>- <c-w>5-
