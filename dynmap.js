@@ -30,8 +30,8 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 $( window ).load(function() {
     $('area.dynmap').each(function(){
-        var imheight  = $('img').attr('usemap', '#' + $(this).parent().attr('name')).height(),
-            imwidth   = $('img').attr('usemap', '#' + $(this).parent().attr('name')).width(),
+        var imheight  = $('img[usemap="#' + $(this).parent().attr('name') + '"').height(),
+            imwidth   = $('img[usemap="#' + $(this).parent().attr('name') + '"').width(),
             ca        = $(this).attr('coords').split(","),
             newcoords = '';
 
