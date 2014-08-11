@@ -9,7 +9,7 @@
  *     values are between 0 and 1. Therefore, the bottom right hand corner of
  *     an image would be (1, 1) and the center would be (0.5, 0.5).
  *
- *     For circular dynamic mapping, the radius coordinate can be calculated
+ *     For circular dynamic mapping, the radius length can be calculated
  *     based on a percentage of either the image's height or width. To specify
  *     which of these is desired, add either the 'rad-ht' or 'rad-wd' CSS
  *     classes.
