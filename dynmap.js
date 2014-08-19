@@ -2,7 +2,7 @@
  * dynmap.js - Dynamic Image Mapping Script
  *     This script allows dynamic html image mapping for images with variable
  *     size. Dynamic mapping can be used in conjunction with static mapping.
- *     Requires JQuery.
+ *     Requires JQuery. Compatible with all major browsers, and IE 8 and up.
  *
  *     To make an <area> tag dynamic, add the 'dynmap' css class. When this 
  *     class is used, coordinates are calculated using percentages. Valid 
@@ -28,20 +28,24 @@
  * Language: Javascript/JQuery
  * Requirements: JQuery
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ 
 $( window ).load(function() {
     $('area.dynmap').each(function(){
-        var imheight  = $('img[usemap="#' + $(this).parent().attr('name') + '"').height(),
-            imwidth   = $('img[usemap="#' + $(this).parent().attr('name') + '"').width(),
-            ca        = $(this).attr('coords').split(","),
-            newcoords = '';
-
+   
+    var imheight = $('img[usemap="#' + $(this).parent().attr('name') + '"]').height(),
+        imwidth = $('img[usemap="#' + $(this).parent().attr('name') + '"]').width(),
+        ca = $(this).attr('coords').split(","),
+        newcoords = '';
+   
+        for(var i = 0; i < ca.length; i++){ ca[i] /= 1000; }
+   
         switch($(this).attr('shape')){
             case 'rect':
                 newcoords = (imwidth * ca[0]) + ',' + (imheight * ca[1]) + ',' + (imwidth * ca[2]) + ',' + (imheight * ca[3]);
                 break;
             case 'circle':
-                var raddim = ($(this).hasClass('rad-ht') ? imheight : 
-                              $(this).hasClass('rad-wd') ? imwidth  : 0);
+                var raddim = ($(this).hasClass('rad-ht') ? imheight :
+                $(this).hasClass('rad-wd') ? imwidth : 0);
                 newcoords = (imwidth * ca[0]) + ',' + (imheight * ca[1]) + ',' + (raddim * ca[2]);
                 break;
             case 'poly':
